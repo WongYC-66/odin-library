@@ -4,11 +4,12 @@ let myLibrary = [];
 // Event
 window.addEventListener('DOMContentLoaded', () => {
     // initialise
-    document.querySelector('#addBookBtn').addEventListener('click', () => {
+    document.querySelector('#addBookBtn').addEventListener('click', (e) => {
+        e.preventDefault()
         document.querySelector('.formDiv').style.visibility = 'visible';
     })
-    document.querySelector('#submitBtn').addEventListener('click', (e) => {
-        // e.preventDefault()
+    document.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault()
         document.querySelector('.formDiv').style.visibility = 'hidden';
         let titleInput = document.querySelector('#title')
         let authorInput = document.querySelector('#author')
