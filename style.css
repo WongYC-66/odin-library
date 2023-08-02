@@ -114,6 +114,10 @@ input#isRead{
     justify-self: start;
     width: 25px;
 }
+
+input.invalid{
+    border: 5px solid red;
+}
 button#submitBtn{
     grid-column: 1 / -1;
     padding: 10px 10px;

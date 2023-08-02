@@ -10,6 +10,25 @@ window.addEventListener('DOMContentLoaded', () => {
         e.preventDefault()
         document.querySelector('.formDiv').style.visibility = 'visible';
     })
+    document.querySelector('#submitBtn').addEventListener('click', (e) => {
+        const titleInput = document.querySelector('#title')
+        const authorInput = document.querySelector('#author')
+        const pageInput = document.querySelector('#pages')
+        titleInput.classList.remove('invalid')
+        authorInput.classList.remove('invalid')
+        pageInput.classList.remove('invalid')
+        let isValid = true
+        if(titleInput.value == '') titleInput.classList.add('invalid')
+        if(authorInput.value == '') authorInput.classList.add('invalid')
+        if(! (/^[1-9]+[0-9]*$/.test(pageInput.value))) pageInput.classList.add('invalid')
+        if(titleInput.value == '' || authorInput.value == '' || ! (/^[1-9]+[0-9]*$/.test(pageInput.value))) isValid = false
+        if(! isValid){
+            e.preventDefault()
+            alert('please enter title, author , number of page > 0')
+        } 
+
+    })
+
     document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault()
         document.querySelector('.formDiv').style.visibility = 'hidden';
@@ -145,6 +164,5 @@ function addRandomBook() {
     myLibrary.addBookToLibrary(book2)
     myLibrary.addBookToLibrary(book3)
 }
-
 
 let myLibrary = new Library()
